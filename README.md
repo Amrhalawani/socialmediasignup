@@ -56,7 +56,7 @@ Step 1 : Add it in your root build.gradle at the end of repositories:
 Step 2 : Add the dependency
 ```java
 	dependencies {
-	        implementation 'com.github.ahmed-adel-said:socialmediasignup:-SNAPSHOT'
+	        implementation 'com.github.ahmed-adel-said:socialmediasignup:v1.0'
 	}
 ```
 For Maven :
@@ -74,15 +74,39 @@ Step 2. Add the dependency
 	<dependency>
 	    <groupId>com.github.ahmed-adel-said</groupId>
 	    <artifactId>socialmediasignup</artifactId>
-	    <version>-SNAPSHOT</version>
+	    <version>-v1.0</version>
 	</dependency>
 ```
 
 -----------------------------------------------------------------------------------------------------
 
-# User Documentation :
+# Documentation "The first two points are mandatory":
 
-1. If you want to get user data of any of the five social media platforms, all you have to do is to write this one line of code :
+**1.** To add your public, secret and application keys for every social media platform, all you have to do is to override the default values that the library has and put or own values in the build.gradle file app of your app module :
+```java
+android.defaultConfig.manifestPlaceholders = [
+        facebookAppId         : "FACEBOOK_APP_ID",
+        googleWebClientId     : "GOOGLE_WEB_CLIENT_ID",
+        twitterConsumerKey    : "TWITTER_CONSUMER_KEY”,
+        twitterConsumerSecret : "TWITTER_CONSUMER_SECRET",
+        instagramClientId     : "INSTAGRAM_CLIENT_KEY",
+        instagramClientSecret : "INSTAGRAM_CLIENT_SECRET",
+        instagramRedirectUri  : "INSTAGRAM_REDIRECT_URI"
+]
+```
+
+**2.** You must add the social media sdk versions by yourself in the build.gradle file of the project module. Since our SocialMediaSignUp library will wait them from you to be your mission to always making the social media sdk versions up-to-date :
+```java
+ext {
+    socialMediaSignUpLibraries = [
+            facebookVersion  : '4.30.0',
+            googlePlusVersion: '11.8.0',
+            twitterVersion   : '3.2.0'
+    ]
+}
+```
+
+3. If you want to get user data of any of the five social media platforms, all you have to do is to write this one line of code :
 ```java
 /**
  * @param socialMediaType is enum class that has types of all social media platforms.
@@ -98,7 +122,7 @@ SocialMediaSignUp.getInstance().connectTo(SocialMediaType socialMediaType, List<
 SocialMediaSignUp.getInstance().connectToLinkedIn(Scope linkedInScope, SocialMediaSignUpCallback callback);
 ```
 
-2. While ,if you want to disconnect the connection between any of the five social media platforms, here is how can you make it :
+4. While ,if you want to disconnect the connection between any of the five social media platforms, here is how can you make it :
 ```java
 /**
  * @param socialMediaType is enum class that has types of all social media platforms.
@@ -107,7 +131,7 @@ SocialMediaSignUp.getInstance().connectToLinkedIn(Scope linkedInScope, SocialMed
 SocialMediaSignUp.getInstance().disconnectService(SocialMediaType socialMediaType, SocialMediaSignUpCallback callback);
 ```
 
-3. Here is the SocialMediaType enum class :
+5. Here is the SocialMediaType enum class :
 ```java
 enum SocialMediaType {
         FACEBOOK("facebook"),
@@ -118,36 +142,12 @@ enum SocialMediaType {
     }
 ```
 
-4. And the SocialMediaSignUpCallback interface :
+6. And the SocialMediaSignUpCallback interface :
 ```java
 public interface SocialMediaSignUpCallback {
     void onSuccess(SocialMediaSignUp.SocialMediaType socialMediaType, SocialMediaUser socialMediaUser);
     void onError(Throwable error);
     void onSignOut(SocialMediaSignUp.SocialMediaType socialMediaType);
-}
-```
-
-5. To add your public, secret and application keys for every social media platform, all you have to do is to override the default values that the library has and put or own values in the build.gradle file app of your app module :
-```java
-android.defaultConfig.manifestPlaceholders = [
-        facebookAppId         : "FACEBOOK_APP_ID",
-        googleWebClientId     : "GOOGLE_WEB_CLIENT_ID",
-        twitterConsumerKey    : "TWITTER_CONSUMER_KEY”,
-        twitterConsumerSecret : "TWITTER_CONSUMER_SECRET",
-        instagramClientId     : "INSTAGRAM_CLIENT_KEY",
-        instagramClientSecret : "INSTAGRAM_CLIENT_SECRET",
-        instagramRedirectUri  : "INSTAGRAM_REDIRECT_URI"
-]
-```
-
-5. You must add the social media sdk versions by yourself in the build.gradle file of the project module. Since our SocialMediaSignUp library will wait them from you to be your mission to always making the social media sdk versions up-to-date :
-```java
-ext {
-    socialMediaSignUpLibraries = [
-            facebookVersion  : '4.30.0',
-            googlePlusVersion: '11.8.0',
-            twitterVersion   : '3.2.0'
-    ]
 }
 ```
 
