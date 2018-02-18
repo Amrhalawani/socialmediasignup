@@ -89,13 +89,13 @@ Step 2. Add the dependency
  * @param scopes that can be passed to each social media platform.
  * @param callback that will be fired once there is success, error, or sign out happens during the connection with any social media platform.
  */
-SocialMediaSignUp.getInstance().connectTo(SocialMediaType socialMediaType, List<String> scopes, SocialMediaSignUpCallback callback)
+SocialMediaSignUp.getInstance().connectTo(SocialMediaType socialMediaType, List<String> scopes, SocialMediaSignUpCallback callback);
 /**
  * This is only for connecting with LinkedIn social media platform.
  * @param linkedInScope that will be passed to LinkedIn social media platform.
  * @param callback that will be fired once there is success, error, or sign out happened during the connection with LinkedIn social media platform.
  */
-SocialMediaSignUp.getInstance().connectToLinkedIn(Scope linkedInScope, SocialMediaSignUpCallback callback)
+SocialMediaSignUp.getInstance().connectToLinkedIn(Scope linkedInScope, SocialMediaSignUpCallback callback);
 ```
 
 2. While ,if you want to disconnect the connection between any of the five social media platforms, here is how can you make it :
@@ -104,7 +104,7 @@ SocialMediaSignUp.getInstance().connectToLinkedIn(Scope linkedInScope, SocialMed
  * @param socialMediaType is enum class that has types of all social media platforms.
  * @param callback that will be fired once there is success, error, or sign out happens during the connection with any social media platform.
  */
-SocialMediaSignUp.getInstance().disconnectService(SocialMediaType socialMediaType, SocialMediaSignUpCallback callback)
+SocialMediaSignUp.getInstance().disconnectService(SocialMediaType socialMediaType, SocialMediaSignUpCallback callback);
 ```
 
 3. Here is the SocialMediaType enum class :
