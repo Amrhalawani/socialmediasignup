@@ -1,6 +1,6 @@
 # Social Media Sign Up
 
-![alt tag](https://github.com/ahmed-adel-said/socialmediasignup/blob/master/screenshots/device-2018-02-18-001508.png)![alt tag](https://github.com/ahmed-adel-said/socialmediasignup/blob/master/screenshots/device-2018-02-18-001702.png)
+![alt tag](https://github.com/ahmed-adel-said/socialmediasignup/blob/master/screenshots/device-2018-02-18-001702.png)
 
 Nowadays most of the mobile apps are integrating with the most famous social media platforms (Facebook, Instagram, Twitter, Google Plus and LinkedIn). For the developer, it’s going to be a hassle to communicate with all of these platforms.
 So, SocialMediaSignUp library makes the magic for you, with only one line of code, you can integrate with the most famous social media platform :
@@ -23,13 +23,13 @@ SO EASY SO SIMPLE.
   - **Twitter**
   - **Google Plus**
   - **LinkedIn**
-- Adding the **scopes** for each platform according to the application needs.
-- Support **default** scopes to get the minimum user data.
+- Adding **scopes** for each platform according to the application needs.
+- Support **default scopes** to get the minimum user data.
 - Used inside **Activity**, **Fragment** or event **Custom View**.
 - Update the **social media sdk versions** in **gradle file** of **your application**, which guarantee the **up-to-date** social media sdk versions.
 - Adding the social media **public**, **secret** and **application keys** in the **gradle file** of **your application** to guarantee the totally isolation between the library and the integrated application.
 - **No need** to add anything in **Manifest.xml** file, we did all of these to you in SocialMediaSignUp library ;).
-- **Easily integration**, with only one line of code you have what you need from the user data from access token to personal data like name, email and profile picture.
+- **Easily integration**, with only one line of code, you will have the user data starting from **access token** to **personal data** like name, email and profile picture.
   
 -----------------------------------------------------------------------------------------------------
 
@@ -122,7 +122,7 @@ SocialMediaSignUp.getInstance().connectTo(SocialMediaType socialMediaType, List<
 SocialMediaSignUp.getInstance().connectToLinkedIn(Scope linkedInScope, SocialMediaSignUpCallback callback);
 ```
 
-4. While ,if you want to disconnect the connection between any of the five social media platforms, here is how can you make it :
+4. While if you want to disconnect the connection between any of the five social media platforms, here is how can you make it :
 ```java
 /**
  * @param socialMediaType is enum class that has types of all social media platforms.
